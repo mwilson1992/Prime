@@ -1,33 +1,29 @@
-// Tests whether a number is prime
-
-#include "stdafx.h"
 #include <stdio.h>
-
-#define true 1
-#define false 0
-typedef int bool;
-
-bool is_prime(int n)
+int main()
 {
-	int divisor;
-
-	if (n <= 1)
-		return false;
-	for (divisor = 2; divisor * divisor <= n; divisor++)
-		if (n % divisor == 0)
-			return false;
-	return true;
-}
-
-int main(void)
-{
-	int n;
-
-	printf("Enter a number: ");
-	scanf("%d", &n);
-	if (is_prime(n))
-		printf("Prime\n");
-	else 
-		printf("Not prime\n");
-	return 0;
+    int n, i, flag = 0;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    for(i = 2; i <= n/2; ++i)
+    {
+        // condition for nonprime number
+        if(n%i == 0)
+        {
+            flag = 1;
+            break;
+        }
+    }
+    if (n == 1) 
+    {
+      printf("1 is neither a prime nor a composite number.");
+    }
+    else 
+    {
+        if (flag == 0)
+          printf("%d is a prime number.", n);
+        else
+          printf("%d is not a prime number.", n);
+    }
+    
+    return 0;
 }
