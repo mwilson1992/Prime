@@ -2,6 +2,9 @@
 
 #include "stdafx.h"
 #include <stdio.h>
+#define p printf(
+#define s scanf(
+#define m printf("\n")
 
 #define true 1
 #define false 0
@@ -23,11 +26,13 @@ int main(void)
 {
 	int n;
 
-	printf("Enter a number: ");
-	scanf("%d", &n);
+	p"Enter a number: " f;
+	s"%d", &n f;
 	if (is_prime(n))
-		printf("Prime\n");
+		p"Prime" f;
+		m;
 	else 
-		printf("Not prime\n");
+		p"Not prime" f;
+		m;
 	return 0;
 }
