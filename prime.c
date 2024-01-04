@@ -1,33 +1,31 @@
-// Tests whether a number is prime
-
-#include "stdafx.h"
+//Simple c program to check whether a given number is prime or not
 #include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
 
-#define true 1
-#define false 0
-typedef int bool;
+bool is_prime(int n) {
+    if (n <= 1)
+        return false;
 
-bool is_prime(int n)
-{
-	int divisor;
+    for (int divisor = 2; divisor * divisor <= n; divisor++) {
+        if (n % divisor == 0)
+            return false;
+    }
 
-	if (n <= 1)
-		return false;
-	for (divisor = 2; divisor * divisor <= n; divisor++)
-		if (n % divisor == 0)
-			return false;
-	return true;
+    return true;
 }
 
-int main(void)
-{
-	int n;
+int main(void) {
+    int n;
 
-	printf("Enter a number: ");
-	scanf("%d", &n);
-	if (is_prime(n))
-		printf("Prime\n");
-	else 
-		printf("Not prime\n");
-	return 0;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if (is_prime(n)) {
+        printf("Prime Number\n");
+    } else {
+        printf("Not a prime number\n");
+    }
+
+    return 0;
 }
